@@ -39,9 +39,8 @@ a:hover { text-decoration: underline; }
   width: var(--sidebar-w);
   flex-shrink: 0;
   background: var(--blue);
-  position: sticky;
-  top: 0;
-  height: 100vh;
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
   overflow-y: auto;
   padding: 2rem 1.5rem;
   display: flex;
@@ -158,8 +157,9 @@ a:hover { text-decoration: underline; }
 
 /* ── Main Content ── */
 .main-content {
+  margin-left: var(--sidebar-w);
   flex: 1;
-  padding: 3rem;
+  padding: 3rem 3.5rem;
   min-width: 0;
   overflow-x: hidden;
 }
@@ -540,15 +540,9 @@ body.lang-en .nav-es { display: none; }
 
 @media (max-width: 768px) {
   .mobile-nav-toggle { display: block; }
-  .sidebar {
-    position: fixed;
-    top: 0; left: 0; bottom: 0;
-    transform: translateX(-100%);
-    transition: transform 0.25s ease;
-    height: 100vh;
-  }
+  .sidebar { transform: translateX(-100%); transition: transform 0.25s ease; }
   .sidebar.open { transform: translateX(0); }
-  .main-content { padding: 1.5rem 1.25rem; padding-top: 4rem; }
+  .main-content { margin-left: 0; padding: 1.5rem 1.25rem; padding-top: 4rem; }
   .hero-name { font-size: 1.8rem; }
   .stats-bar { gap: 1rem; flex-wrap: wrap; }
 }
